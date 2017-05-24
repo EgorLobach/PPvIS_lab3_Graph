@@ -1,3 +1,7 @@
+import controller.Controller;
+import model.DataBase;
+import view.MainFrame;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -9,7 +13,9 @@ public class Main {
         SwingUtilities.invokeLater(new Runnable() {
             @Override
             public void run() {
-                MainFrame mainFrame = new MainFrame("Frame", new Dimension(1000, 500));
+                DataBase dataBase = new DataBase();
+                Controller controller = new Controller(dataBase);
+                MainFrame mainFrame = new MainFrame("Frame", new Dimension(1200, 800), controller);
                 mainFrame.initMainFrame();
             }
         });
